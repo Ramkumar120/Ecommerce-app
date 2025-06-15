@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-deployment
+spec:
+  replicas: 2  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: ecommerce
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+    spec:
+      containers:
+      - name: ecommerce
+        image: ramkumarv1999/ecommerce-app:latest
+        ports:
+        - containerPort: 3000  # Port your application listens on
